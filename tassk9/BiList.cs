@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tassk9
 {
@@ -101,7 +97,6 @@ namespace tassk9
         {
             Node head = beg;
             this.Delete(n, head);
-            Count--;
         }
 
         void Delete(int n, Node head)
@@ -112,19 +107,27 @@ namespace tassk9
                 Node k = head;
                 if ((temp.data == n) && (temp.next != null))
                 {
-                    k = temp.next;
-                    k.last = null;
+                    beg = beg.next;
+                    beg.last = null;
                     Console.WriteLine("Элемент удален");
+                    Count--;
                 }
-                else if ((temp.next != null) && (temp.next.next != null) && (temp.next.data == n))
+                else if ((temp.data == n) && (temp.next == null))
+                {
+                    beg = null;
+                    Count--;
+                }
+                else if ((temp.next!=null) && (temp.next.data == n) && (temp.next.next != null) )
                 {
                     temp = temp.next = temp.next.next;
                     Console.WriteLine("Элемент удален");
+                    Count--;
                 }
                 else if ((temp.next != null) && (temp.next.next == null) && (temp.next.data == n))
                 {
                     temp.next = null;
                     Console.WriteLine("Элемент удален");
+                    Count--;
                 }
                 else
                 {

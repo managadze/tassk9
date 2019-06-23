@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace tassk9
 {
     class Program
     {
-
-
         public static int Enter()
         {
             int el = 0;
